@@ -1,0 +1,339 @@
+{
+  "generated": "2026-04-01T13:10:35.635842",
+  "bankers": [
+    {
+      "game": 3,
+      "home": "Atletico Madrid",
+      "away": "Barcelona",
+      "p_home": 0.62,
+      "p_draw": 0.11,
+      "p_away": 0.27,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 10,
+      "home": "Monaco",
+      "away": "Marseille",
+      "p_home": 0.62,
+      "p_draw": 0.11,
+      "p_away": 0.27,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 11,
+      "home": "Juventus",
+      "away": "Cagliari",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 12,
+      "home": "Inter Milan",
+      "away": "Frosinone",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 13,
+      "home": "Ajax",
+      "away": "Groningen",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 14,
+      "home": "Porto",
+      "away": "Moreirense",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 15,
+      "home": "Sporting CP",
+      "away": "Famalicao",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    }
+  ],
+  "uncertain": [
+    {
+      "game": 1,
+      "home": "West Ham",
+      "away": "Leeds",
+      "p_home": 0.55,
+      "p_draw": 0.19,
+      "p_away": 0.26,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 2,
+      "home": "Alaves",
+      "away": "Osasuna",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 4,
+      "home": "Getafe",
+      "away": "Athletic Bilbao",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 5,
+      "home": "Oviedo",
+      "away": "Sevilla",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 6,
+      "home": "Lille",
+      "away": "Lens",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 7,
+      "home": "Le Havre",
+      "away": "Auxerre",
+      "p_home": 0.55,
+      "p_draw": 0.19,
+      "p_away": 0.26,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 8,
+      "home": "Lorient",
+      "away": "Paris",
+      "p_home": 0.34,
+      "p_draw": 0.12,
+      "p_away": 0.54,
+      "primary": "2",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 9,
+      "home": "Metz",
+      "away": "Nantes",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    }
+  ],
+  "all_results": [
+    {
+      "game": 1,
+      "home": "West Ham",
+      "away": "Leeds",
+      "p_home": 0.55,
+      "p_draw": 0.19,
+      "p_away": 0.26,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 2,
+      "home": "Alaves",
+      "away": "Osasuna",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 3,
+      "home": "Atletico Madrid",
+      "away": "Barcelona",
+      "p_home": 0.62,
+      "p_draw": 0.11,
+      "p_away": 0.27,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 4,
+      "home": "Getafe",
+      "away": "Athletic Bilbao",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 5,
+      "home": "Oviedo",
+      "away": "Sevilla",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 6,
+      "home": "Lille",
+      "away": "Lens",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 7,
+      "home": "Le Havre",
+      "away": "Auxerre",
+      "p_home": 0.55,
+      "p_draw": 0.19,
+      "p_away": 0.26,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 8,
+      "home": "Lorient",
+      "away": "Paris",
+      "p_home": 0.34,
+      "p_draw": 0.12,
+      "p_away": 0.54,
+      "primary": "2",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 9,
+      "home": "Metz",
+      "away": "Nantes",
+      "p_home": 0.46,
+      "p_draw": 0.16,
+      "p_away": 0.38,
+      "primary": "1",
+      "banker": false,
+      "banker_pick": null
+    },
+    {
+      "game": 10,
+      "home": "Monaco",
+      "away": "Marseille",
+      "p_home": 0.62,
+      "p_draw": 0.11,
+      "p_away": 0.27,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 11,
+      "home": "Juventus",
+      "away": "Cagliari",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 12,
+      "home": "Inter Milan",
+      "away": "Frosinone",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 13,
+      "home": "Ajax",
+      "away": "Groningen",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 14,
+      "home": "Porto",
+      "away": "Moreirense",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    },
+    {
+      "game": 15,
+      "home": "Sporting CP",
+      "away": "Famalicao",
+      "p_home": 0.7,
+      "p_draw": 0.12,
+      "p_away": 0.18,
+      "primary": "1",
+      "banker": true,
+      "banker_pick": "1"
+    }
+  ]
+}

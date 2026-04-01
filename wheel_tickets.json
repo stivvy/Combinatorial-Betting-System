@@ -1,0 +1,28 @@
+{
+  "generated": "2026-04-01T13:10:35.981633",
+  "num_tickets": 1,
+  "total_cost_kes": 15,
+  "expected_value_kes": 8217.74,
+  "expected_roi_pct": 54684.96,
+  "bankers_locked": 7,
+  "uncertain_games": 8,
+  "tickets": [
+    [
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "2",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1",
+      "1"
+    ]
+  ]
+}
