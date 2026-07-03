@@ -1,87 +1,81 @@
 #!/usr/bin/env python3
 """
 ================================================================
- BETIKA JACKPOT SYSTEM — MASTER RUNNER
- Runs all 3 phases in sequence
-
- Usage:
-   python run_pipeline.py --matches matches.csv --budget 500
-   python run_pipeline.py --matches matches.csv --budget 300 --target 13
-   python run_pipeline.py --help
+ JACKPOT PREDICTION SYSTEM — MASTER RUNNER  v4.0
+ Phase 1 (Poisson model) -> Phase 2 (wheel) -> Phase 3 (filter)
 ================================================================
 """
-import subprocess
-import sys
-import argparse
-import os
+import subprocess, sys, argparse, os
 
 class C:
-    R="\033[0m"; B="\033[1m"; RE="\033[91m"
-    GR="\033[92m"; YE="\033[93m"; CY="\033[96m"; WH="\033[97m"; GY="\033[90m"
+    R="\033[0m"; B="\033[1m"; RE="\033[91m"; GR="\033[92m"
+    YE="\033[93m"; CY="\033[96m"; WH="\033[97m"; GY="\033[90m"
 
-def run(cmd: list, label: str):
-    print(f"\n{C.CY}{C.B}{'═'*60}{C.R}")
-    print(f"{C.YE}{C.B}  RUNNING: {label}{C.R}")
-    print(f"{C.CY}{'═'*60}{C.R}\n")
-    result = subprocess.run([sys.executable] + cmd)
-    if result.returncode != 0:
-        print(f"\n{C.RE}  ✗ {label} failed. Fix errors above and retry.{C.R}\n")
-        sys.exit(result.returncode)
-    print(f"\n{C.GR}  ✓ {label} complete{C.R}")
+SCRIPT_DIR=os.path.dirname(os.path.abspath(__file__))
+def script(n): return os.path.join(SCRIPT_DIR,n)
+
+def run(cmd,label):
+    print(f"\n{C.CY}{C.B}{'='*60}{C.R}\n{C.YE}{C.B}  RUNNING: {label}{C.R}\n{C.CY}{'='*60}{C.R}\n")
+    r=subprocess.run([sys.executable]+cmd)
+    if r.returncode!=0:
+        print(f"\n{C.RE}  {label} failed.{C.R}\n"); sys.exit(r.returncode)
+    print(f"\n{C.GR}  OK {label} complete{C.R}")
 
 def main():
-    parser = argparse.ArgumentParser(description="Betika Jackpot Full Pipeline")
-    parser.add_argument("--matches",   required=True, help="Matches CSV file")
-    parser.add_argument("--budget",    type=int, default=500, help="Budget in KES")
-    parser.add_argument("--target",    type=int, default=12,  help="Target score (12-14)")
-    parser.add_argument("--threshold", type=float, default=0.75,
-                        help="Banker threshold 0-1 (default: 0.75)")
-    parser.add_argument("--strict",    action="store_true", help="Use strict filters in Phase 3")
-    parser.add_argument("--skip-scrape", action="store_true", help="Skip FBref scraping")
-    args = parser.parse_args()
+    p=argparse.ArgumentParser()
+    p.add_argument("--matches",required=True)
+    p.add_argument("--budget",type=int,default=500)
+    p.add_argument("--target",type=int,default=12)
+    p.add_argument("--threshold",type=float,default=0.55)
+    p.add_argument("--api-key",default=None)
+    mg=p.add_mutually_exclusive_group()
+    mg.add_argument("--strict",action="store_true")
+    mg.add_argument("--relax",action="store_true")
+    p.add_argument("--skip-scrape",action="store_true")
+    args=p.parse_args()
+
+    if not os.path.exists(args.matches):
+        print(f"{C.RE}  Matches file not found: {args.matches}{C.R}"); sys.exit(1)
+    if args.target not in (12,13,14,15):
+        print(f"{C.RE}  --target must be 12-15{C.R}"); sys.exit(1)
+    maxt=args.budget//15
+    mode="strict" if args.strict else "relax" if args.relax else "standard"
 
     print(f"""
 {C.YE}{C.B}  ╔══════════════════════════════════════════════════════════╗
-  ║      BETIKA JACKPOT SYSTEM — FULL PIPELINE              ║
-  ║      Phase 1: Scrape → Phase 2: Wheel → Phase 3: Filter ║
+  ║      JACKPOT PREDICTION SYSTEM — FULL PIPELINE  v4.0    ║
+  ║   Poisson Model -> Wheel -> Filter                      ║
   ╚══════════════════════════════════════════════════════════╝{C.R}
 
-  {C.CY}Matches file: {args.matches}
-  Budget:       KES {args.budget}
-  Target:       {args.target}/15
-  Threshold:    {int(args.threshold*100)}% banker confidence{C.R}
+  {C.CY}Matches:    {args.matches}
+  Budget:     KES {args.budget} -> max {maxt} tickets
+  Target:     >= {args.target}/15
+  Threshold:  {int(args.threshold*100)}%
+  Filter:     {mode}
+  Data:       {'fallback (--skip-scrape)' if args.skip_scrape else 'football-data.org API'}{C.R}
 """)
 
-    # Phase 1
-    p1_cmd = ["phase1_bankers.py", "--matches", args.matches,
-               "--threshold", str(args.threshold)]
-    if args.skip_scrape:
-        p1_cmd.append("--no-scrape")
-    run(p1_cmd, "Phase 1: FBref Scraper + Banker Detection")
+    p1=[script("phase1_model.py"),"--matches",args.matches,"--threshold",str(args.threshold)]
+    if args.api_key: p1+=["--api-key",args.api_key]
+    if args.skip_scrape: p1.append("--no-scrape")
+    run(p1,"Phase 1: Poisson Match Model")
 
-    # Phase 2
-    p2_cmd = ["phase2_wheel.py", "--budget", str(args.budget),
-               "--target", str(args.target)]
-    run(p2_cmd, "Phase 2: Abbreviated Wheel Engine")
+    p2=[script("phase2_wheel.py"),"--budget",str(args.budget),"--target",str(args.target)]
+    run(p2,"Phase 2: Wheel Engine")
 
-    # Phase 3
-    p3_cmd = ["phase3_filter.py"]
-    if args.strict:
-        p3_cmd.append("--strict")
-    run(p3_cmd, "Phase 3: Heuristic Filter + Pattern Pruning")
+    p3=[script("phase3_filter.py")]
+    if args.strict: p3.append("--strict")
+    elif args.relax: p3.append("--relax")
+    run(p3,"Phase 3: Filter")
 
     print(f"""
 {C.GR}{C.B}  ╔══ PIPELINE COMPLETE ════════════════════════════════════╗
-  ║  Your optimised Betika Jackpot slips are ready.        ║
+  ║  Your optimised jackpot slips are ready.               ║
   ╚════════════════════════════════════════════════════════╝{C.R}
 
-  {C.WH}Key output files:{C.R}
-    {C.GR}final_slips.txt{C.R}      ← SMS-ready slips, send to 29090
-    {C.GR}final_slips.csv{C.R}      ← Spreadsheet view
-    {C.GR}bankers.json{C.R}         ← Phase 1 analysis
-    {C.GR}wheel_tickets.json{C.R}   ← Phase 2 raw wheel
-    {C.GR}filtered_tickets.json{C.R}← Phase 3 final output
+  {C.WH}Send each slip from final_slips.txt to 29090{C.R}
+
+  {C.YE}If all tickets rejected, re-run with --relax{C.R}
 """)
 
-if __name__ == "__main__":
-    main()
+if __name__=="__main__": main()
