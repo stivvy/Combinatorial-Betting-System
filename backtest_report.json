@@ -1,0 +1,129 @@
+{
+  "generated": "2026-07-04T04:02:29.936791",
+  "games": 15,
+  "model_correct": 5,
+  "model_pct": 0.0,
+  "best_ticket_score": 6,
+  "details": [
+    {
+      "game": 1,
+      "predicted": "1",
+      "actual": "X",
+      "correct": false,
+      "confidence": 41.9,
+      "data_source": "fallback"
+    },
+    {
+      "game": 2,
+      "predicted": "1",
+      "actual": "2",
+      "correct": false,
+      "confidence": 42.1,
+      "data_source": "full"
+    },
+    {
+      "game": 3,
+      "predicted": "1",
+      "actual": "1",
+      "correct": true,
+      "confidence": 41.9,
+      "data_source": "fallback"
+    },
+    {
+      "game": 4,
+      "predicted": "1",
+      "actual": "2",
+      "correct": false,
+      "confidence": 41.9,
+      "data_source": "fallback"
+    },
+    {
+      "game": 5,
+      "predicted": "1",
+      "actual": "1",
+      "correct": true,
+      "confidence": 42.1,
+      "data_source": "full"
+    },
+    {
+      "game": 6,
+      "predicted": "1",
+      "actual": "2",
+      "correct": false,
+      "confidence": 42.7,
+      "data_source": "partial"
+    },
+    {
+      "game": 7,
+      "predicted": "2",
+      "actual": "X",
+      "correct": false,
+      "confidence": 38.2,
+      "data_source": "full"
+    },
+    {
+      "game": 8,
+      "predicted": "1",
+      "actual": "1",
+      "correct": true,
+      "confidence": 39.1,
+      "data_source": "full"
+    },
+    {
+      "game": 9,
+      "predicted": "1",
+      "actual": "1",
+      "correct": true,
+      "confidence": 56.5,
+      "data_source": "full"
+    },
+    {
+      "game": 10,
+      "predicted": "2",
+      "actual": "1",
+      "correct": false,
+      "confidence": 42.3,
+      "data_source": "full"
+    },
+    {
+      "game": 11,
+      "predicted": "2",
+      "actual": "X",
+      "correct": false,
+      "confidence": 40.2,
+      "data_source": "full"
+    },
+    {
+      "game": 12,
+      "predicted": "2",
+      "actual": "1",
+      "correct": false,
+      "confidence": 35.2,
+      "data_source": "full"
+    },
+    {
+      "game": 13,
+      "predicted": "1",
+      "actual": "X",
+      "correct": false,
+      "confidence": 42.1,
+      "data_source": "fallback"
+    },
+    {
+      "game": 14,
+      "predicted": "1",
+      "actual": "X",
+      "correct": false,
+      "confidence": 42.1,
+      "data_source": "full"
+    },
+    {
+      "game": 15,
+      "predicted": "1",
+      "actual": "1",
+      "correct": true,
+      "confidence": 42.1,
+      "data_source": "full"
+    }
+  ]
+}

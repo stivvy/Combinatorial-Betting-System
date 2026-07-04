@@ -1,0 +1,19 @@
+# Past Betika Jackpot (23-24/05) with actual odds from screenshot
+# Format: Home,Away,Odds_1,Odds_X,Odds_2,Actual_Result
+# The 6th column (result) is only used by backtest.py
+#
+Standard Liege,Charleroi,1.93,3.50,4.10,X
+Brighton,Man Utd,1.94,4.00,3.60,2
+Cadiz,Leganes,2.19,3.35,3.15,1
+Cultural Leonesa,Burgos,3.10,3.15,2.34,2
+Fulham,Newcastle,2.95,3.75,2.32,1
+Alaves,Rayo Vallecano,2.41,3.50,3.05,2
+Espanyol,Real Sociedad,2.30,3.55,3.20,X
+Getafe,Osasuna,2.60,2.80,3.45,1
+Betis,Levante,2.27,3.35,3.40,1
+Villarreal,Atletico Madrid,2.46,3.85,2.65,1
+Fiorentina,Atalanta,2.75,3.55,2.50,X
+Parma,Sassuolo,2.75,3.35,2.65,1
+Burnley,Wolves,2.50,3.55,2.80,X
+Nottingham,Bournemouth,3.30,3.80,2.11,X
+Sunderland,Chelsea,3.55,3.70,2.05,1
